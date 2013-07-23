@@ -1,24 +1,20 @@
 h1. base64_compabile
 
-A drop-in replacement library for Ruby base64 encoding.
+A drop-in replacement library for Ruby base64 decoding which also decodes improperly padded base64url encoded formats.
 
 h2. Summary
 
-The standard base64 library is fast, but technically not specification compatible. Everything it base64 encodes, it also MIME encodes. Beyond encode, the standard decode also fails on non-MIME data.
+I suggest to only use decode64. Please see this ruby core bug, https://bugs.ruby-lang.org/issues/8286 .
 
 h2. Why would I use this?
 
-First off, speed is not currently a reason to use base64_compatible. Standard base64 is much faster because much of it is written at the C level.
-
-If correctness is more of a concern, and non-MIME base64 is your problem, you can stop your search here. You'll probably have to deal with non-MIME encoded data if you're dealing with lower level document formats, sending data at the socket layer, etc.
-
-Save space in encoding size! Without the line-length cruft from the MIME standard and excessive byte padding, you'll end up with a smaller file.
+Use this if you need to decode base64url encoded strings with implicit (not present) padding. This library is much slower than the built-in Base64 library. Once ruby-core adds the correct functionality to MRI Ruby, I suggest use of this library should be discontinued.
 
 h2. LICENSE
 
 (The MIT License)
  
-Copyright (c) 2009: Alan Da Costa
+Copyright (c) 2013: Alan Da Costa
  
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
