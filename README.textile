@@ -1,6 +1,6 @@
 h1. base64_compabile
 
-A drop-in replacement library for Ruby base64 decoding which also decodes improperly padded base64url encoded formats.
+A drop-in replacement library for Ruby base64 decoding which also decodes improperly padded base64url encoded strings.
 
 h2. Summary
 
